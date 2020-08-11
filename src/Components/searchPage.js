@@ -34,8 +34,6 @@ class SearchPage extends Component {
       ||b.authors.join(", ").toLowerCase().includes(value.toLowerCase()))
       ));
 
-        //const { newBooks, books, selectShelf } = props;
-        //const { searchBooks, myBooks, onMove } = props;
         const shelfedBooks = showBooks.map(bk => {
           books.map(bks => (  
             bks.id === bk.id
@@ -48,19 +46,22 @@ class SearchPage extends Component {
             <div className="search-books">
             <div className="search-books-bar">
             <Link to ="/">
-              <button className="close-search" /*onClick={() => this.setState({ showSearchPage: false })}*/>
+              <button className="close-search">
               Close</button>
               </Link>
               <div className="search-books-input-wrapper">
-                {JSON.stringify(this.state.value)}
-                <input type="text" value={this.state.value} onChange={event => this.searchInput(event.target.value)} placeholder="Search by title or author"/>
+                <input type="text" value={this.state.value} 
+                onChange={event => this.searchInput(event.target.value)} 
+                placeholder="Search by title or author"/>
               </div>
             </div>
             <div className="search-books-results">
           {showBooks !== newBooks && (
             <div>
               <h3>Showing {showBooks.length} results </h3>
-        <ol className="books-grid">{shelfedBooks.map(book => (<FixBooks shelf='none'  selectShelf={selectShelf} key={book.id} books={book}/>))}</ol>
+        <ol className="books-grid">
+          {shelfedBooks.map(book => (<FixBooks shelf={book.shelf ? book.shelf : 'none'} 
+          selectShelf={selectShelf} key={book.id} books={book}/>))}</ol>
             </div>
             )}
             </div>
