@@ -1,15 +1,17 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+This is a project designed to assist users in tracking the books they are currently reading or wish to read. As a result of this this webApp is employ the amazing powers of the React Library to create three shelves which inform you of which books: you have read in the past, you are currently reading, and the ones you so dearly wish to read! 
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
+And the WebApp is all very easy to use. All you ever have to do to get started are:
 
-## TL;DR
 
-To get started developing right away:
+* Clone the project from this link on Git hub - https://github.com/Hamg69/My-Reads
+* Navigate to the project path on your workspace terminal
+* Install all project dependencies with `npm install`
+* Start the development server with `npm start`
+* Open your default browser with a connection to the internet
+* Navigate to webApp path on your local server. 
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
 
 ## What You're Getting
 ```bash
@@ -22,7 +24,12 @@ To get started developing right away:
 │   └── index.html # DO NOT MODIFY
 └── src
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
+    ├── App.js # This is the root of your app. Contains the main function and serves as the only true source to other components.
+    ├── Components # This is the file that contains other necessary files in the making of the webApp
+    │   ├── Changeshelf.js
+    │   ├── Fixsook.js
+    │   ├── ListPage.js
+    │   └── SearchPage.js
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.
@@ -33,60 +40,14 @@ To get started developing right away:
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
 ```
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
-
 ## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
-
-* [`getAll`](#getall)
-* [`update`](#update)
-* [`search`](#search)
-
-### `getAll`
-
-Method Signature:
-
-```js
-getAll()
-```
-
-* Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* This collection represents the books currently in the bookshelves in your app.
-
-### `update`
-
-Method Signature:
-
-```js
-update(book, shelf)
-```
-
-* book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]  
-* Returns a Promise which resolves to a JSON object containing the response data of the POST request
-
-### `search`
-
-Method Signature:
-
-```js
-search(query)
-```
-
-* query: `<String>`
-* Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
+The webApp is fetches its data from a backend server. This means the user's search is dictated by the data the comes from the backend server. To put it in a more clear way the user may not be able the search for every existing books they want. Many of the book topics or words the user is able to search can be found in the [SEARCH_TERMS.md]. Those list of terms are the only terms that will work with the backend, so don't be surprised if your some of terms don't come back with any results.
 
 ## Important
-The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
+* More importantly any search made will only return a maximum of 20 books. So you could just click on their controls to set any book you want to their desired shelf. For any search made and any results returned any book that has been selected before will inform you if it has and which shelf it was set to when selected. 
 
-## Create React App
+Enjoy your Book Tracking App!!!
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
-## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
