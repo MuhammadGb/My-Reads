@@ -1,6 +1,7 @@
 import React, { Component } from 'react'; 
 import {Link}  from 'react-router-dom';
 import FixBooks from './Fixbooks';
+import PropTypes from 'prop-types';
 
 class ListShelf extends Component {
    shelves = [ 
@@ -17,6 +18,11 @@ class ListShelf extends Component {
       name: "Read",
     }
   ]
+
+  static propTypes = {
+    books: PropTypes.array,
+    selectShelf: PropTypes.func
+  }
   
     render() { 
       const {books, selectShelf} = this.props;
@@ -31,7 +37,7 @@ class ListShelf extends Component {
               <div className="bookshelf-books">
               <ol className="books-grid">
                 {book.map(buk => ( 
-                <FixBooks shelf={shelf.id} books={buk} selectShelf={selectShelf}/>
+                <FixBooks key={buk.id} shelf={shelf.id} books={buk} selectShelf={selectShelf}/>
                 ))}
                 </ol>
               </div>

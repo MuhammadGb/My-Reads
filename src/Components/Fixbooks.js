@@ -1,7 +1,14 @@
 import React, { Component } from 'react'; 
 import ChangeShelf from './Changeshelf';
+import PropTypes from 'prop-types';
   
 class FixBooks extends Component {
+
+static propTypes = {
+  books: PropTypes.object,
+  shelf: PropTypes.string,
+  selectShelf: PropTypes.func
+}
 
     render() {
       const {books, shelf, selectShelf} = this.props;

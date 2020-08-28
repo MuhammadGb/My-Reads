@@ -1,13 +1,22 @@
 import React, { Component } from 'react'; 
 import {Link}  from 'react-router-dom';
 import FixBooks from './Fixbooks';
-import * as BooksAPI from '../BooksAPI'
+import * as BooksAPI from '../BooksAPI';
+import PropTypes from 'prop-types';
+
 
 class SearchPage extends Component {
   state = {
     value: "",
     newBooks: [],
   }
+
+  static propTypes = {
+    books: PropTypes.array,
+    shelf: PropTypes.string,
+    selectShelf: PropTypes.func,
+  }
+
   searchInput = (event) => {
     this.setState(() => ({
       value: event

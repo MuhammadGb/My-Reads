@@ -1,12 +1,10 @@
-import React, { Component } from 'react'; 
+import React from 'react'; 
+import PropTypes from 'prop-types';
 
 function ChangeShelf (props) {
     const changeButton = event => {
         props.selectShelf(props.books, event.target.value)
     }
-
-    //render() {
-        //const {shelf, books} = this.props;
         props.books.shelf = props.shelf;
         
         return (
@@ -18,7 +16,11 @@ function ChangeShelf (props) {
             <option value="none">None</option>
         </select>
         )
-    //}
+}
+
+ChangeShelf.propTypes = {
+    books: PropTypes.object,
+    shelf: PropTypes.string
 }
 
 export default ChangeShelf
