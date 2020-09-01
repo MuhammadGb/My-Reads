@@ -1,10 +1,11 @@
-import React, { Component } from 'react'; 
+import React from 'react'; 
 import {Link}  from 'react-router-dom';
 import FixBooks from './Fixbooks';
 import PropTypes from 'prop-types';
 
-class ListShelf extends Component {
-   shelves = [ 
+  const ListShelf = ({books, selectShelf}) => {
+    
+   const shelves = [ 
     {
       id : "currentlyReading",
       name: "Currently Reading",
@@ -18,18 +19,10 @@ class ListShelf extends Component {
       name: "Read",
     }
   ]
-
-  static propTypes = {
-    books: PropTypes.array,
-    selectShelf: PropTypes.func
-  }
-  
-    render() { 
-      const {books, selectShelf} = this.props;
         return (
         <div>
         <div className="list-books-content">
-        {this.shelves.map(shelf => {
+        {shelves.map(shelf => {
             const book = books.filter(book => book.shelf === shelf.id)
             return (
             <div className="bookshelf" key={shelf.id}>
@@ -52,7 +45,10 @@ class ListShelf extends Component {
         </div>
         </div>
         )
-    }
 }
 
+ListShelf.propTypes = {
+  books: PropTypes.array,
+  selectShelf: PropTypes.func
+}
 export default ListShelf
