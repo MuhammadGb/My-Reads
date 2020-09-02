@@ -3,7 +3,7 @@ import {Link}  from 'react-router-dom';
 import FixBooks from './Fixbooks';
 import PropTypes from 'prop-types';
 
-  const ListShelf = ({books, selectShelf}) => {
+const ListShelf = ({books, selectShelf}) => {
     
    const shelves = [ 
     {

@@ -4,7 +4,6 @@ import FixBooks from './Fixbooks';
 import * as BooksAPI from '../BooksAPI';
 import PropTypes from 'prop-types';
 
-
 const SearchPage = ({books, shelf, selectShelf}) => {
   const [inputValue, setInputValue] = useState("");
   const [newBooks, setNewBooks] = useState([]);
@@ -41,8 +40,7 @@ const SearchPage = ({books, shelf, selectShelf}) => {
     <div className="search-books">
     <div className="search-books-bar">
     <Link to ="/">
-      <button className="close-search">
-      Close</button>
+      <button className="close-search">Close</button>
       </Link>
       <div className="search-books-input-wrapper">
         <input type="text" value={inputValue} 
@@ -63,7 +61,6 @@ const SearchPage = ({books, shelf, selectShelf}) => {
   </div>
   )
 }
-
 SearchPage.propTypes = {
   books: PropTypes.array,
   shelf: PropTypes.string,
